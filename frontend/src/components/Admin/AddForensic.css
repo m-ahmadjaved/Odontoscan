@@ -1,0 +1,12 @@
+/* AddForensic.css */
+
+input.yellow-focus:focus {
+  border-color: #ffc107 !important; /* Yellow border */
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5) !important; /* Yellow shadow */
+  outline: none !important;
+}
+
+/* Optional: Make label yellow when input is focused */
+input.yellow-focus:focus ~ label {
+  color: #ffc107 !important;
+}

@@ -1,0 +1,119 @@
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+/* Heading Styles */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Image Styles */
+.image-small {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Button Styles */
+button {
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c9302c;
+}
+
+.modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0,0,0,0.5) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999 !important;
+}
+
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal .cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  margin-right: 10px;
+}
+
+.modal .cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.modal .delete-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.modal .delete-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Error Message Styles */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}

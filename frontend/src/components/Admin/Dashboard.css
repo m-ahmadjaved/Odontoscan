@@ -1,0 +1,65 @@
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.sidebar {
+  width: 250px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.sidebar button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #555;
+}
+
+.logout-btn {
+  margin-top: auto;
+  background-color: #e53935;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.chart-box {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

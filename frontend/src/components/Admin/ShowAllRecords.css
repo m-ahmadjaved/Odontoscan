@@ -1,0 +1,204 @@
+/* Container & header */
+.backgroundd{
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.containerr {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.header {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0d47a1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.search-input,
+.filter-select {
+  padding: 10px 15px;
+  border: 2px solid #0d47a1;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.5);
+}
+
+/* Loading and error messages */
+.loading-text,
+.error-message,
+.no-records {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #d32f2f;
+  margin-top: 20px;
+}
+
+/* Cards grid */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Individual card */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 25px rgba(13, 71, 161, 0.3);
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+.action-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.edit-icon {
+  color: #1976d2;
+}
+
+.edit-icon:hover {
+  color: #0d47a1;
+}
+
+.delete-icon {
+  color: #d32f2f;
+}
+
+.delete-icon:hover {
+  color: #b71c1c;
+}
+
+/* Card body */
+.card-body p {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.images-row {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  flex: 1 1 130px;
+  text-align: center;
+}
+
+.image-wrapper p {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+.image-thumb {
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 12px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.15);
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.image-thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(13, 71, 161, 0.4);
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.close-btn {
+  position: fixed;
+  top: 25px;
+  right: 35px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  z-index: 1010;
+}
+
+.close-btn:hover {
+  color: #f44336;
+}

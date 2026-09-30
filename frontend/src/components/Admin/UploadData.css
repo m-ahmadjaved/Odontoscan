@@ -1,0 +1,100 @@
+/* Wrapper for the UpdateData page */
+.update-data-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eaf4f4; /* Light teal background for a clean, medical feel */
+}
+
+/* Form box styling */
+.update-data-form-box {
+    background-color: #ffffff; /* White background for the form */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px; /* Maximum width for large screens */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for the form */
+}
+
+/* Form heading */
+.update-data-heading {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #10477e; /* Dark blue color for heading to evoke professionalism */
+}
+
+/* Form group styles */
+.update-data-form-group {
+    margin-bottom: 10px;
+}
+
+/* Labels */
+.update-data-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input fields */
+.update-data-form-group input[type="text"],
+.update-data-form-group input[type="number"],
+.update-data-form-group input[type="file"],
+.update-data-form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Gender options */
+.update-data-gender-options {
+    display: flex;
+    gap: 20px;
+}
+
+/* Submit button */
+.update-data-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF; /* Blue button to align with the theme */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.update-data-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.update-data-submit-btn:active {
+    background-color: #004080;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .update-data-form-box {
+        padding: 20px;
+    }
+
+    .update-data-heading {
+        font-size: 20px;
+    }
+
+    .update-data-form-group input[type="text"],
+    .update-data-form-group input[type="number"],
+    .update-data-form-group input[type="file"],
+    .update-data-form-group select {
+        padding: 10px;
+    }
+}
