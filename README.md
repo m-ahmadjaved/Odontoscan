@@ -151,6 +151,14 @@ AI-driven analysis with CNN improvements
 
 Multi-biometric support (fingerprints, facial recognition)
 
+## Lessons Learned
+
+Building ODONTO-SCAN taught me:
+- Designing secure REST APIs with JWT and role-based access control
+- Integrating OpenCV with a Node.js backend for real-time image processing
+- Optimizing MongoDB queries through indexing and aggregation for production-scale performance
+- Writing maintainable, testable code with Jest and Mocha
+
 Author
 Muhammad Ahmad Javed
 
