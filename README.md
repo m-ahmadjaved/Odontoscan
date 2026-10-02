@@ -9,7 +9,7 @@ A full-stack biometric identification platform for forensic and clinical use, en
 
 ## The Problem
 
-Traditional dental identification methods rely on manual comparison of dental records — a slow, error-prone process that struggles with large datasets and high-pressure scenarios like mass disasters. Forensic professionals lack automated tools for efficient radiograph matching.
+Traditional dental identification relies on manual comparison of dental records — a slow, error-prone process that struggles with large datasets and high-pressure scenarios like mass disasters. Forensic professionals lack automated tools for efficient radiograph matching.
 
 ## The Solution
 
@@ -20,7 +20,7 @@ ODONTO-SCAN automates dental biometric identification using computer vision and 
 ## Key Features
 
 - **Automated Radiograph Matching** — OpenCV-based feature extraction (noise reduction, contrast enhancement, edge detection) with Euclidean distance matching and confidence scoring
-- **Secure Authentication** — JWT tokens, bcrypt password hashing, multi-factor authentication, and role-based access control (Admin/Forensic roles)
+- **Secure Authentication** — JWT tokens, bcrypt password hashing, multi-factor authentication, and role-based access control (Admin / Forensic roles)
 - **Data Encryption** — AES encryption for sensitive patient data and radiographs
 - **Centralized Database** — MongoDB with optimized schema design, indexing, and aggregation pipelines
 - **Audit Logging** — Comprehensive logs of all user actions, data access, and system changes
@@ -46,7 +46,7 @@ ODONTO-SCAN automates dental biometric identification using computer vision and 
 │
 ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ BACKEND (Node.js/Express) │
+│ BACKEND (Node.js / Express) │
 │ REST APIs | JWT Auth | Middleware | Feature Extraction │
 └─────────────────────────────────────────────────────────────┘
 │
@@ -84,6 +84,7 @@ ODONTO-SCAN automates dental biometric identification using computer vision and 
 ## Code Highlight
 
 ### Biometric Matching Logic (OpenCV)
+
 ```javascript
 const extractFeatures = async (imagePath) => {
   const image = await cv.imreadAsync(imagePath);
@@ -91,6 +92,7 @@ const extractFeatures = async (imagePath) => {
   const featureVector = await extractFeatureVector(processed);
   return featureVector;
 };
+
 Testing Results
 Test Type	Framework	Result
 Unit Tests	Jest	Feature extraction and matching functions verified
@@ -98,6 +100,30 @@ Integration Tests	Mocha	End-to-end matching and authentication verified
 User Acceptance	Forensic Professionals	Positive feedback on usability and speed
 Accuracy: 95%+ on premortem-antemortem matching
 
+Project Status
+Area	Status
+Backend API	✅ Complete
+Frontend UI	✅ Complete
+Biometric Matching	✅ Working (95%+ accuracy)
+Testing	✅ Jest + Mocha
+Documentation	🟡 In progress
+What I Learned Building This
+Designing a full REST API with role-based access control (Admin / Forensic users)
+
+Integrating OpenCV with a Node.js backend for real-time image processing
+
+Structuring a MongoDB schema that stores encrypted patient records and biometric feature vectors
+
+Writing tests that actually catch bugs before they reach the UI
+
+The importance of audit logging in systems that handle sensitive data
+
+Roadmap
+□ Dockerize backend and frontend
+□ Add GitHub Actions CI pipeline
+□ Deploy live demo on Render
+□ Add multi-biometric support (fingerprints + facial recognition)
+□ Integration with national forensic databases via APIs
 Installation
 Prerequisites
 Node.js (v18+)
@@ -118,17 +144,17 @@ npm start
 Frontend Setup
 cd frontend
 npm install
-npm start
+npm run dev
 
 API Endpoints
 Method	Endpoint	Description	Access
 POST	/api/auth/register	Register new user	Public
 POST	/api/auth/login	Login and receive JWT	Public
 GET	/api/records	Get all records	Admin
-POST	/api/records	Upload new radiograph	Forensic/Admin
+POST	/api/records	Upload new radiograph	Forensic / Admin
 PUT	/api/records/:id	Update record	Admin
 DELETE	/api/records/:id	Delete record	Admin
-POST	/api/match	Match radiograph	Forensic/Admin
+POST	/api/match	Match radiograph	Forensic / Admin
 Security Measures
 JWT-based authentication with token expiration
 
@@ -142,35 +168,17 @@ Audit logging for accountability
 
 Input validation and sanitization
 
-Future Work
-Integration with national forensic databases via APIs
-
-Mobile application for field use
-
-AI-driven analysis with CNN improvements
-
-Multi-biometric support (fingerprints, facial recognition)
-
-## Lessons Learned
-
-Building ODONTO-SCAN taught me:
-- Designing secure REST APIs with JWT and role-based access control
-- Integrating OpenCV with a Node.js backend for real-time image processing
-- Optimizing MongoDB queries through indexing and aggregation for production-scale performance
-- Writing maintainable, testable code with Jest and Mocha
-
 Author
 Muhammad Ahmad Javed
-
 BS Computer Science (Hons.), University of Agriculture, Faisalabad (2025)
 
-imahmad.xyz
+Portfolio: imahmad.xyz
 
-LinkedIn
+LinkedIn: linkedin.com/in/m-ahmadjaved
 
-GitHub
+GitHub: github.com/m-ahmadjaved
 
-Medium
+Medium: medium.com/@m-ahmadjaved
 
 License
 MIT License — see LICENSE for details.
