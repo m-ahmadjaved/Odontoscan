@@ -99,6 +99,7 @@ const extractFeatures = async (imagePath) => {
   const featureVector = await extractFeatureVector(processed);
   return featureVector;
 };
+```
 Testing Results
 Test Type	Framework	Result
 Unit Tests	Jest	Feature extraction and matching functions verified
