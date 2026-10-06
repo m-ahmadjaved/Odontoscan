@@ -39,24 +39,25 @@ ODONTO-SCAN automates dental biometric identification using computer vision and 
 | Testing | Jest, Mocha |
 
 ## System Architecture
-┌─────────────────────────────────────────────────────────────┐
-│ FRONTEND │
-│ React.js | Dashboard | Radiograph Management | Admin Panel │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│ BACKEND (Node.js / Express) │
-│ REST APIs | JWT Auth | Middleware | Feature Extraction │
-└─────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────┐
-│ DATABASE (MongoDB) │
-│ User Schema | Record Schema | Feature Vectors | Audit Logs │
-└─────────────────────────────────────────────────────────────┘
 
-text
+```
+┌──────────────────────────────────────────────────┐
+│                    FRONTEND                       │
+│  React.js | Dashboard | Radiograph Management    │
+└──────────────────────────────────────────────────┘
+                    │
+                    ▼
+┌──────────────────────────────────────────────────┐
+│          BACKEND (Node.js / Express)              │
+│  REST APIs | JWT Auth | Middleware                │
+└──────────────────────────────────────────────────┘
+                    │
+                    ▼
+┌──────────────────────────────────────────────────┐
+│              DATABASE (MongoDB)                   │
+│  User | Record | Feature Vectors | Audit Logs    │
+└──────────────────────────────────────────────────┘
+```
 
 ## How It Works
 
@@ -100,99 +101,106 @@ const extractFeatures = async (imagePath) => {
   return featureVector;
 };
 ```
-Testing Results
-Test Type	Framework	Result
-Unit Tests	Jest	Feature extraction and matching functions verified
-Integration Tests	Mocha	End-to-end matching and authentication verified
-User Acceptance	Forensic Professionals	Positive feedback on usability and speed
-Accuracy: 95%+ on premortem-antemortem matching
 
-Project Status
-Area	Status
-Backend API	✅ Complete
-Frontend UI	✅ Complete
-Biometric Matching	✅ Working (95%+ accuracy)
-Testing	✅ Jest + Mocha
-Documentation	🟡 In progress
-FAQ
-<details> <summary><strong>What is ODONTO-SCAN used for?</strong></summary>
-ODONTO-SCAN is a biometric identification platform for forensic and clinical use. It matches dental radiographs against stored records using OpenCV-based feature extraction, achieving 95%+ accuracy in premortem-antemortem matching.
+## Testing Results
 
-</details><details> <summary><strong>Who can use it?</strong></summary>
-The system has two roles:
+| Test Type | Framework | Result |
+|-----------|-----------|--------|
+| Unit Tests | Jest | Feature extraction and matching functions verified |
+| Integration Tests | Mocha | End-to-end matching and authentication verified |
+| User Acceptance | Forensic Professionals | Positive feedback on usability and speed |
 
-Admin — manages users, records, and system settings
+**Accuracy: 95%+ on premortem-antemortem matching**
 
-Forensic — uploads radiographs and performs matching
+## Project Status
 
-Each role has different permissions enforced through JWT-based role-based access control (RBAC).
+| Area | Status |
+|------|--------|
+| Backend API | ✅ Complete |
+| Frontend UI | ✅ Complete |
+| Biometric Matching | ✅ Working (95%+ accuracy) |
+| Testing | ✅ Jest + Mocha |
+| Documentation | 🟡 In progress |
 
-</details><details> <summary><strong>How does the matching work?</strong></summary>
-Upload a dental radiograph
+## FAQ
 
-Image is preprocessed (noise reduction, contrast enhancement, edge detection)
+<details>
+<summary><strong>What is ODONTO-SCAN used for?</strong></summary>
 
-OpenCV extracts a feature vector from the dental pattern
-
-The vector is compared against stored records using Euclidean distance
-
-A confidence score is returned with the best match
-
-</details><details> <summary><strong>Is patient data secure?</strong></summary>
-Yes. The system uses:
-
-JWT authentication with token expiration
-
-bcrypt password hashing (10 salt rounds)
-
-AES encryption for sensitive data at rest
-
-Audit logging for all user actions and data access
-
-</details><details> <summary><strong>What tech stack does it use?</strong></summary>
-Frontend: React.js, HTML5, CSS3
-
-Backend: Node.js, Express.js
-
-Database: MongoDB with Mongoose
-
-Computer Vision: OpenCV
-
-Security: JWT, bcrypt, AES
-
-Testing: Jest, Mocha
-
-</details><details> <summary><strong>Can I run it locally?</strong></summary>
-Yes. See the Installation section below. You'll need Node.js 18+, MongoDB, and a .env file (copy from .env.example).
+ODONTO-SCAN is a biometric identification platform for forensic and clinical use. It matches dental radiographs against stored records using OpenCV-based feature extraction, achieving 95%+ accuracy.
 
 </details>
-What I Learned Building This
-Designing a full REST API with role-based access control (Admin / Forensic users)
 
-Integrating OpenCV with a Node.js backend for real-time image processing
+<details>
+<summary><strong>Who can use it?</strong></summary>
 
-Structuring a MongoDB schema that stores encrypted patient records and biometric feature vectors
+The system has two roles:
+- **Admin** — manages users, records, and system settings
+- **Forensic** — uploads radiographs and performs matching
 
-Writing tests that actually catch bugs before they reach the UI
+Each role has different permissions enforced through JWT-based RBAC.
 
-The importance of audit logging in systems that handle sensitive data
+</details>
 
-Roadmap
-□ Dockerize backend and frontend
-□ Add GitHub Actions CI pipeline
-□ Deploy live demo on Render
-□ Add multi-biometric support (fingerprints + facial recognition)
-□ Integration with national forensic databases via APIs
-Installation
-Prerequisites
-Node.js (v18+)
+<details>
+<summary><strong>How does the matching work?</strong></summary>
 
-MongoDB (local or MongoDB Atlas)
+1. Upload a dental radiograph
+2. Image is preprocessed (noise reduction, contrast, edge detection)
+3. OpenCV extracts a feature vector
+4. The vector is compared using Euclidean distance
+5. A confidence score is returned with the best match
 
-npm or yarn
+</details>
 
-Backend Setup
-bash
+<details>
+<summary><strong>Is patient data secure?</strong></summary>
+
+Yes. The system uses JWT authentication with token expiration, bcrypt password hashing (10 salt rounds), AES encryption for data at rest, and audit logging.
+
+</details>
+
+<details>
+<summary><strong>What tech stack does it use?</strong></summary>
+
+React.js, Node.js, Express.js, MongoDB, OpenCV, JWT, bcrypt, AES, Jest, Mocha.
+
+</details>
+
+<details>
+<summary><strong>Can I run it locally?</strong></summary>
+
+Yes. See the Installation section. You'll need Node.js 18+, MongoDB, and a `.env` file (copy from `.env.example`).
+
+</details>
+
+## What I Learned Building This
+
+- Designing a full REST API with role-based access control (Admin / Forensic users)
+- Integrating OpenCV with a Node.js backend for real-time image processing
+- Structuring a MongoDB schema that stores encrypted patient records and biometric feature vectors
+- Writing tests that actually catch bugs before they reach the UI
+- The importance of audit logging in systems that handle sensitive data
+
+## Roadmap
+
+- [ ] Dockerize backend and frontend
+- [ ] Add GitHub Actions CI pipeline
+- [ ] Deploy live demo on Render
+- [ ] Add multi-biometric support (fingerprints + facial recognition)
+- [ ] Integration with national forensic databases via APIs
+
+## Installation
+
+### Prerequisites
+
+- Node.js (v18+)
+- MongoDB (local or MongoDB Atlas)
+- npm or yarn
+
+### Backend Setup
+
+```bash
 cd backend
 npm install
 
@@ -202,44 +210,47 @@ npm install
 # PORT=5000
 
 npm start
-Frontend Setup
-bash
+```
+
+### Frontend Setup
+
+```bash
 cd frontend
 npm install
 npm run dev
-API Endpoints
-Method	Endpoint	Description	Access
-POST	/api/auth/register	Register new user	Public
-POST	/api/auth/login	Login and receive JWT	Public
-GET	/api/records	Get all records	Admin
-POST	/api/records	Upload new radiograph	Forensic / Admin
-PUT	/api/records/:id	Update record	Admin
-DELETE	/api/records/:id	Delete record	Admin
-POST	/api/match	Match radiograph	Forensic / Admin
-Security Measures
-JWT-based authentication with token expiration
+```
 
-bcrypt password hashing (10 salt rounds)
+## API Endpoints
 
-AES encryption for sensitive data at rest
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | /api/auth/register | Register new user | Public |
+| POST | /api/auth/login | Login and receive JWT | Public |
+| GET | /api/records | Get all records | Admin |
+| POST | /api/records | Upload new radiograph | Forensic / Admin |
+| PUT | /api/records/:id | Update record | Admin |
+| DELETE | /api/records/:id | Delete record | Admin |
+| POST | /api/match | Match radiograph | Forensic / Admin |
 
-Role-based access control (RBAC)
+## Security Measures
 
-Audit logging for accountability
+- JWT-based authentication with token expiration
+- bcrypt password hashing (10 salt rounds)
+- AES encryption for sensitive data at rest
+- Role-based access control (RBAC)
+- Audit logging for accountability
+- Input validation and sanitization
 
-Input validation and sanitization
+## Author
 
-Author
-Muhammad Ahmad Javed
+**Muhammad Ahmad Javed**
 BS Computer Science (Hons.), University of Agriculture, Faisalabad (2025)
 
-Portfolio: imahmad.xyz
+- Portfolio: [imahmad.xyz](https://imahmad.xyz)
+- LinkedIn: [linkedin.com/in/m-ahmadjaved](https://www.linkedin.com/in/m-ahmadjaved)
+- GitHub: [github.com/m-ahmadjaved](https://github.com/m-ahmadjaved)
+- Medium: [medium.com/@m-ahmadjaved](https://medium.com/@m-ahmadjaved)
 
-LinkedIn: linkedin.com/in/m-ahmadjaved
+## License
 
-GitHub: github.com/m-ahmadjaved
-
-Medium: medium.com/@m-ahmadjaved
-
-License
-MIT License — see LICENSE for details.
+MIT License — see [LICENSE](LICENSE) for details.
