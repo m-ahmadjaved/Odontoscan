@@ -107,6 +107,69 @@ Frontend UI	✅ Complete
 Biometric Matching	✅ Working (95%+ accuracy)
 Testing	✅ Jest + Mocha
 Documentation	🟡 In progress
+
+## FAQ
+
+<details>
+<summary><strong>What is ODONTO-SCAN used for?</strong></summary>
+
+ODONTO-SCAN is a biometric identification platform for forensic and clinical use. It matches dental radiographs against stored records using OpenCV-based feature extraction, achieving 95%+ accuracy in premortem-antemortem matching.
+
+</details>
+
+<details>
+<summary><strong>Who can use it?</strong></summary>
+
+The system has two roles:
+- **Admin** — manages users, records, and system settings
+- **Forensic** — uploads radiographs and performs matching
+
+Each role has different permissions enforced through JWT-based role-based access control (RBAC).
+
+</details>
+
+<details>
+<summary><strong>How does the matching work?</strong></summary>
+
+1. Upload a dental radiograph
+2. Image is preprocessed (noise reduction, contrast enhancement, edge detection)
+3. OpenCV extracts a feature vector from the dental pattern
+4. The vector is compared against stored records using Euclidean distance
+5. A confidence score is returned with the best match
+
+</details>
+
+<details>
+<summary><strong>Is patient data secure?</strong></summary>
+
+Yes. The system uses:
+- **JWT authentication** with token expiration
+- **bcrypt** password hashing (10 salt rounds)
+- **AES encryption** for sensitive data at rest
+- **Audit logging** for all user actions and data access
+
+</details>
+
+<details>
+<summary><strong>What tech stack does it use?</strong></summary>
+
+- **Frontend:** React.js, HTML5, CSS3
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB with Mongoose
+- **Computer Vision:** OpenCV
+- **Security:** JWT, bcrypt, AES
+- **Testing:** Jest, Mocha
+
+</details>
+
+<details>
+<summary><strong>Can I run it locally?</strong></summary>
+
+Yes. See the [Installation](#installation) section above. You'll need Node.js 18+, MongoDB, and a `.env` file (copy from `.env.example`).
+
+</details>
+
+
 What I Learned Building This
 Designing a full REST API with role-based access control (Admin / Forensic users)
 
