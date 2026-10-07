@@ -2,6 +2,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
+const { validateRequired } = require("../utils/validateInput");
 
 /**
  * Generate a signed JWT for an authenticated user.
@@ -41,14 +42,13 @@ const generateToken = (id, role) => {
  */
 exports.login = async (req, res) => {
   try {
-    const { username, password } = req.body;
-
-    // 1. Input validation — fail fast on missing fields
-    if (!username || !password) {
-      return res.status(400).json({
-        message: "Username and password are required.",
-      });
+    // 1. Validate input using the reusable helper
+    const validationError = validateRequired(req.body, ["username", "password"]);
+    if (validationError) {
+      return res.status(400).json({ message: validationError });
     }
+
+    const { username, password } = req.body;
 
     // 2. Look up the user
     const user = await User.findOne({ username });
@@ -56,7 +56,7 @@ exports.login = async (req, res) => {
     // 3. Same message for both "no user" and "wrong password" —
     //    never reveal which one was wrong.
     const invalidCredentialsError = () => {
-      res.status(401).json({ message: "Invalid credentials." });
+      return res.status(401).json({ message: "Invalid credentials." });
     };
 
     if (!user) {
